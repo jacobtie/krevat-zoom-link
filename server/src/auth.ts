@@ -40,12 +40,12 @@ const getTokenClaims = (req: Request): Claims | null => {
 
 export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const claims = getTokenClaims(req);
-  if (!claims) return res.sendStatus(404);
+  if (!claims) return res.sendStatus(403);
   return next();
 };
 
 export const adminMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const claims = getTokenClaims(req);
-  if (!claims?.isAdmin) return res.sendStatus(404);
+  if (!claims?.isAdmin) return res.sendStatus(403);
   return next();
 };
