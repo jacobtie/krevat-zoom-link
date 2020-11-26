@@ -64,4 +64,11 @@ body {
   background-color: white;
   border-radius: 5px;
 }
+
+@media (max-width: 780px) {
+  .main-view {
+    height: 100%;
+    width: 100%;
+  }
+}
 </style>

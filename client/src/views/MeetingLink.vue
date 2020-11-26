@@ -7,9 +7,10 @@
       class="meeting-btn"
       @click="joinMeeting"
     />
-    <b-field v-if="isAdmin">
+    <b-field v-if="isAdmin" style="width:100%;">
       <b-input v-model="editingZoomLink" placeholder="Enter Zoom Link" expanded />
       <b-button
+        class="set-btn"
         type="is-info"
         label="Update"
         :disabled="!editingZoomLink || editingZoomLink === zoomLink"
@@ -75,6 +76,11 @@ export default {
 
   .meeting-btn {
     margin-bottom: 2rem;
+  }
+
+  .set-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 </style>
