@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <b-field label="Passcode">
+    <b-field label="Passcode" type="is-info">
       <b-input
         v-model="code"
         placeholder="Enter passcode"
