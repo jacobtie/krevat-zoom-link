@@ -1,0 +1,19 @@
+{
+  "name": "krevat-zoom-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js"
+  },
+  "author": "Jacob Kedar Krevat <jacob.krevat@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.16"
+  }
+}
