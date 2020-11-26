@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 const dbUri = process.env.DATABASE_URI;
 if (!dbUri) throw new Error('No DB URI');
 
-mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to mongoose!'));
 
 const meetingSchema = new mongoose.Schema({
   link: String,
