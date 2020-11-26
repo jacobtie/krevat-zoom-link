@@ -7,9 +7,15 @@
       class="meeting-btn"
       @click="joinMeeting"
     />
-    <b-field v-if="isAdmin" style="width:100%;">
-      <b-input v-model="editingZoomLink" placeholder="Enter Zoom Link" expanded />
+    <b-field style="width:100%;" type="is-info">
+      <b-input
+        v-model="editingZoomLink"
+        placeholder="Enter Zoom Link"
+        :disabled="!isAdmin"
+        expanded
+      />
       <b-button
+        v-if="isAdmin"
         class="set-btn"
         type="is-info"
         label="Update"

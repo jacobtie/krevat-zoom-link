@@ -51,6 +51,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/deep/ i {
+  color: #2d8cff;
+}
+
 .login-btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
