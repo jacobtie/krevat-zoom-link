@@ -5,6 +5,8 @@ import meetingRouter from './routes/meeting';
 
 const app = express();
 
+app.enable('trust proxy');
+
 if (process.env.NODE_ENV === 'local') {
   app.use(cors());
 }
@@ -13,9 +15,10 @@ if (process.env.NODE_ENV === 'local') {
 if (process.env.NODE_ENV !== 'local') {
   app.use((req, res, next) => {
     if (req.secure) {
-      return next();
+      next();
+    } else {
+      res.redirect(`https://${req.headers.host}${req.url}`);
     }
-    return res.redirect(`https://${req.headers.host}${req.url}`);
   });
 }
 
