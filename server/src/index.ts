@@ -9,6 +9,16 @@ if (process.env.NODE_ENV === 'local') {
   app.use(cors());
 }
 
+// Force HTTPS redirect when not on localhost
+if (process.env.NODE_ENV !== 'local') {
+  app.use((req, res, next) => {
+    if (req.secure) {
+      return next();
+    }
+    return res.redirect(`https://${req.headers.host}${req.url}`);
+  });
+}
+
 app.use(express.json());
 
 app.use('/api/v1/login', loginRouter);
