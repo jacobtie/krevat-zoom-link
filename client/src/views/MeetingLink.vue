@@ -1,13 +1,13 @@
 <template>
   <div v-if="zoomLink" class="meeting-link">
     <b-button
-      type="is-info"
+      type="is-primary"
       label="Join Meeting"
       size="is-large"
       class="meeting-btn"
       @click="joinMeeting"
     />
-    <b-field style="width:100%;" type="is-info">
+    <b-field style="width:100%;" type="is-primary">
       <b-input
         v-model="editingZoomLink"
         placeholder="Enter Zoom Link"
@@ -17,7 +17,7 @@
       <b-button
         v-if="isAdmin"
         class="set-btn"
-        type="is-info"
+        type="is-primary"
         label="Update"
         :disabled="!editingZoomLink || editingZoomLink === zoomLink"
         @click="setZoomLink"

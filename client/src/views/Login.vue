@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <b-field label="Passcode" type="is-info">
+    <b-field label="Passcode" type="is-primary">
       <b-input
         v-model="code"
         placeholder="Enter passcode"
@@ -12,7 +12,7 @@
       />
       <b-button
         class="login-btn"
-        type="is-info"
+        type="is-primary"
         label="Login"
         :disabled="code.length === 0"
         @click="login"
@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ i {
-  color: #2d8cff;
+  color: $primary;
 }
 
 .login-btn {
