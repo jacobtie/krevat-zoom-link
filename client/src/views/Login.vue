@@ -14,7 +14,7 @@
         class="login-btn"
         type="is-primary"
         label="Login"
-        :disabled="code.length === 0"
+        :disabled="shouldDisableLogin"
         @click="login"
       />
     </b-field>
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { login } from '../modules/login';
+
 export default {
   name: 'Login',
   data() {
@@ -31,6 +33,11 @@ export default {
       error: null,
     };
   },
+  computed: {
+    shouldDisableLogin() {
+      return this.code === '';
+    },
+  },
   watch: {
     code() {
       if (this.error) this.error = null;
@@ -38,13 +45,7 @@ export default {
   },
   methods: {
     async login() {
-      try {
-        const res = await this.$http.post('/login', { code: this.code });
-        this.$emit('login', res.data);
-      } catch (err) {
-        console.dir(err);
-        this.error = 'Invalid passcode';
-      }
+      await login(this.$http, this.code);
     },
   },
 };
